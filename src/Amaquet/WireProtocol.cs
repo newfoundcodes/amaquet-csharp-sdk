@@ -8,8 +8,13 @@ namespace Amaquet;
 /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
 public enum FrameKind : byte
 {
+    /// <summary>A request sent by a client.</summary>
     Request = 1,
+
+    /// <summary>A response sent by the server.</summary>
     Response = 2,
+
+    /// <summary>An unsolicited event sent by the server.</summary>
     Event = 3,
 }
 
@@ -19,11 +24,22 @@ public enum FrameKind : byte
 /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
 public enum Opcode : ushort
 {
+    /// <summary>General command operation.</summary>
     Command = 1,
+
+    /// <summary>Initial protocol handshake.</summary>
     Hello = 2,
+
+    /// <summary>Authentication operation.</summary>
     Auth = 3,
+
+    /// <summary>Subscribe operation.</summary>
     Subscribe = 4,
+
+    /// <summary>Unsubscribe operation.</summary>
     Unsubscribe = 5,
+
+    /// <summary>Request cancellation operation.</summary>
     Cancel = 6,
 }
 
@@ -38,7 +54,7 @@ public sealed record WireFrame(
     ushort Flags = 0
 );
 
-/// <summary>struct: Provides the struct operation or value as implemented by this Amaquet SDK component; follow the server protocol for accepted arguments.</summary>
+/// <summary>Decoded metadata from an Amaquet protocol frame header.</summary>
 /// <remarks>Protocol v1 frames use a fixed 24-byte header and a maximum 64 MiB payload; reject malformed frames.</remarks>
 /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
 public readonly record struct WireHeader(
@@ -55,7 +71,10 @@ public readonly record struct WireHeader(
 /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
 public static class WireProtocol
 {
+    /// <summary>Length in bytes of a protocol frame header.</summary>
     public const int HeaderLength = 24;
+
+    /// <summary>Maximum protocol payload size in bytes.</summary>
     public const int MaxPayload = 64 * 1024 * 1024;
 
     /// <summary>Encode: Encode using the implementation&#x27;s validation, error, and resource-lifetime rules.</summary>
