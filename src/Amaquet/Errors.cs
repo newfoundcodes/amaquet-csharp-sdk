@@ -52,6 +52,7 @@ public sealed class AmaquetTransportException : AmaquetException
 /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
 public sealed class AmaquetRequestException : AmaquetException
 {
+    /// <summary>Server-provided request error code.</summary>
     public string Code { get; }
 
     /// <summary>AmaquetRequestException: Represents an Amaquet amaquet request exception with diagnostic information for callers; avoid logging credentials or private payloads.</summary>
@@ -69,8 +70,13 @@ public sealed class AmaquetRequestException : AmaquetException
 /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
 public sealed class AmaquetHttpException : AmaquetException
 {
+    /// <summary>HTTP status code returned by the administration endpoint.</summary>
     public int StatusCode { get; }
+
+    /// <summary>Server-provided HTTP error code.</summary>
     public string Code { get; }
+
+    /// <summary>Raw response body returned by the administration endpoint.</summary>
     public string ResponseBody { get; }
 
     /// <summary>AmaquetHttpException: Represents an Amaquet amaquet http exception with diagnostic information for callers; avoid logging credentials or private payloads.</summary>
