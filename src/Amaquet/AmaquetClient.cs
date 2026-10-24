@@ -56,15 +56,13 @@ public sealed partial class AmaquetClient : IAsyncDisposable
         _reader = Task.Run(ReadLoopAsync);
     }
 
+    /// <summary>Server metadata returned during the initial handshake.</summary>
     public JsonElement ServerInfo => _serverInfo;
 
-    /// <summary>Read: Read using the implementation&#x27;s validation, error, and resource-lifetime rules.</summary>
-    /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
-    /// <returns>The decoded result returned by this asynchronous or synchronous operation.</returns>
+    /// <summary>Indicates whether the client has been closed.</summary>
     public bool IsClosed => Volatile.Read(ref _closed) != 0;
 
-    /// <summary>new: Provides the new operation or value as implemented by this Amaquet SDK component; follow the server protocol for accepted arguments.</summary>
-    /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
+    /// <summary>Creates a typed-handle factory backed by this client.</summary>
     public Types Typed => new(this);
 
     /// <summary>ConnectAsync: Provides the Connect Async operation or value as implemented by this Amaquet SDK component; follow the server protocol for accepted arguments.</summary>
@@ -1133,15 +1131,13 @@ public sealed class AmaquetSubscription : IAsyncDisposable
         );
     }
 
+    /// <summary>Request identifier associated with this subscription.</summary>
     public ulong RequestId { get; }
 
-    /// <summary>Read: Read using the implementation&#x27;s validation, error, and resource-lifetime rules.</summary>
-    /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
+    /// <summary>Number of subscription events dropped because the local queue was full.</summary>
     public long DroppedEvents => Interlocked.Read(ref _dropped);
 
-    /// <summary>Read: Read using the implementation&#x27;s validation, error, and resource-lifetime rules.</summary>
-    /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
-    /// <returns>The decoded result returned by this asynchronous or synchronous operation.</returns>
+    /// <summary>Indicates whether the subscription has been closed.</summary>
     public bool IsClosed => Volatile.Read(ref _closed) != 0;
 
     /// <summary>Offer: Provides the Offer operation or value as implemented by this Amaquet SDK component; follow the server protocol for accepted arguments.</summary>
@@ -1165,7 +1161,7 @@ public sealed class AmaquetSubscription : IAsyncDisposable
         }
     }
 
-    /// <summary>ReadAllAsync: Read All Async using the implementation&#x27;s validation, error, and resource-lifetime rules.</summary>
+    /// <summary>Reads subscription events as they arrive.</summary>
     /// <remarks>Parameter `ct`: Cancellation token for this operation.</remarks>
     /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
     /// <param name="ct">Argument passed to the Amaquet server or used for local request settings.</param>
