@@ -1,0 +1,419 @@
+{
+  "adjacency_set": [
+    "ADD",
+    "NEIGHBORS",
+    "REMOVE"
+  ],
+  "aggregated_series": [
+    "AGGREGATE",
+    "RANGE"
+  ],
+  "array": [
+    "APPEND",
+    "GET",
+    "LEN",
+    "SET",
+    "VALUES"
+  ],
+  "atomic_counter": [
+    "ADD",
+    "CAS",
+    "LOAD"
+  ],
+  "barrier": [
+    "WAIT"
+  ],
+  "big_decimal": [
+    "ADD",
+    "CMP",
+    "SUB"
+  ],
+  "big_integer": [
+    "ADD"
+  ],
+  "binary_string": [],
+  "bit_field": [
+    "SET",
+    "GET"
+  ],
+  "bit_set": [
+    "SET",
+    "GETBIT",
+    "COUNT"
+  ],
+  "bitmap": [
+    "SET",
+    "GETBIT",
+    "COUNT"
+  ],
+  "blocking_queue": [
+    "ENQUEUE",
+    "DEQUEUE",
+    "CLOSE",
+    "LEN"
+  ],
+  "bloom_filter": [
+    "ADD",
+    "CONTAINS"
+  ],
+  "boolean": [
+    "TOGGLE"
+  ],
+  "bounding_box": [
+    "CONTAINS"
+  ],
+  "btree_index": [
+    "INSERT",
+    "SEARCH",
+    "DELETE",
+    "RANGE"
+  ],
+  "cbor": [
+    "GET"
+  ],
+  "cidr_network": [
+    "CONTAINS"
+  ],
+  "consumer_group": [
+    "SNAPSHOT"
+  ],
+  "count_min_sketch": [
+    "ADD",
+    "ESTIMATE"
+  ],
+  "counter_series": [
+    "ADD",
+    "LAST",
+    "AGGREGATE",
+    "LEN",
+    "RANGE"
+  ],
+  "counting_bloom_filter": [
+    "ADD",
+    "CONTAINS",
+    "REMOVE"
+  ],
+  "cuckoo_filter": [
+    "ADD",
+    "CONTAINS",
+    "REMOVE"
+  ],
+  "decimal": [
+    "ADD",
+    "CMP",
+    "SUB"
+  ],
+  "delayed_queue": [
+    "ENQUEUE",
+    "POP_READY",
+    "LEN"
+  ],
+  "dense_vector": [
+    "DISTANCE"
+  ],
+  "deque": [
+    "PUSH_BACK",
+    "PUSH_FRONT",
+    "LEN",
+    "POP_FRONT",
+    "POP_BACK",
+    "VALUES"
+  ],
+  "duration": [
+    "ADD"
+  ],
+  "event_log": [
+    "APPEND",
+    "LEN",
+    "READ"
+  ],
+  "fifo_queue": [
+    "ENQUEUE",
+    "PEEK",
+    "DEQUEUE",
+    "LEN"
+  ],
+  "flat_vector_index": [
+    "ADD",
+    "SEARCH",
+    "REMOVE",
+    "LEN"
+  ],
+  "float": [
+    "ADD"
+  ],
+  "full_text_document": [
+    "ADD_TEXT",
+    "ADD_TAG",
+    "ADD_NUMERIC",
+    "SNAPSHOT",
+    "GET"
+  ],
+  "gauge_series": [
+    "SET",
+    "LAST",
+    "RANGE",
+    "AGGREGATE",
+    "LEN"
+  ],
+  "geo_point": [
+    "DISTANCE"
+  ],
+  "geo_spatial_index": [
+    "ADD",
+    "RADIUS",
+    "REMOVE",
+    "BOX",
+    "POLYGON"
+  ],
+  "geospatial_secondary_index": [
+    "ADD",
+    "RADIUS",
+    "REMOVE",
+    "BOX",
+    "POLYGON"
+  ],
+  "hash_index": [
+    "ADD",
+    "LOOKUP",
+    "REMOVE"
+  ],
+  "hashmap": [
+    "SET",
+    "GET",
+    "DELETE",
+    "KEYS"
+  ],
+  "histogram": [
+    "OBSERVE",
+    "SNAPSHOT"
+  ],
+  "hnsw_index": [
+    "ADD",
+    "SEARCH",
+    "REMOVE"
+  ],
+  "hyperloglog": [
+    "ADD",
+    "COUNT"
+  ],
+  "integer": [
+    "ADD"
+  ],
+  "inverted_index": [
+    "INDEX",
+    "SEARCH",
+    "REMOVE"
+  ],
+  "json": [
+    "SET",
+    "GET"
+  ],
+  "lease": [
+    "ACQUIRE",
+    "HELD",
+    "RELEASE",
+    "RENEW"
+  ],
+  "lifo_stack": [
+    "PUSH",
+    "PEEK",
+    "POP",
+    "LEN"
+  ],
+  "list": [
+    "PUSH_BACK",
+    "PUSH_FRONT",
+    "LEN",
+    "RANGE",
+    "POP_FRONT",
+    "POP_BACK"
+  ],
+  "lock": [
+    "TRY_LOCK",
+    "UNLOCK",
+    "RENEW"
+  ],
+  "matrix": [
+    "GET",
+    "SET",
+    "LEN"
+  ],
+  "messagepack": [
+    "GET"
+  ],
+  "multimap": [
+    "ADD",
+    "GET",
+    "REMOVE"
+  ],
+  "multiset": [
+    "ADD",
+    "COUNT",
+    "REMOVE"
+  ],
+  "null": [],
+  "numeric_field": [
+    "SET",
+    "GET"
+  ],
+  "ordered_map": [
+    "SET",
+    "GET",
+    "DELETE",
+    "ENTRIES"
+  ],
+  "ordered_set": [
+    "ADD",
+    "VALUES",
+    "REMOVE"
+  ],
+  "persistent_topic": [
+    "PUBLISH",
+    "READ"
+  ],
+  "polygon": [
+    "CONTAINS"
+  ],
+  "priority_queue": [
+    "ENQUEUE",
+    "LEN",
+    "DEQUEUE"
+  ],
+  "pubsub": [
+    "PUBLISH",
+    "STATS"
+  ],
+  "quantized_vector": [
+    "DEQUANTIZE"
+  ],
+  "radix_tree": [
+    "INSERT",
+    "PREFIX",
+    "EXACT"
+  ],
+  "rate_limit_bucket": [
+    "ALLOW",
+    "REMAINING"
+  ],
+  "record": [
+    "SET",
+    "GET"
+  ],
+  "reliable_queue": [
+    "ENQUEUE",
+    "CLAIM",
+    "ACK",
+    "NACK",
+    "STATS"
+  ],
+  "ring_buffer": [
+    "PUSH",
+    "LEN",
+    "VALUES"
+  ],
+  "roaring_bitmap": [
+    "ADD",
+    "CONTAINS",
+    "CARDINALITY",
+    "REMOVE",
+    "VALUES"
+  ],
+  "secondary_index": [
+    "ADD",
+    "LOOKUP"
+  ],
+  "semaphore": [
+    "TRY_ACQUIRE",
+    "STATS",
+    "RELEASE",
+    "ACQUIRE"
+  ],
+  "set": [
+    "ADD",
+    "CONTAINS",
+    "REMOVE",
+    "MEMBERS",
+    "LEN"
+  ],
+  "sorted_set": [
+    "ADD",
+    "SCORE",
+    "REMOVE",
+    "RANGE"
+  ],
+  "sparse_vector": [],
+  "stream": [
+    "ADD",
+    "RANGE",
+    "GROUP_CREATE",
+    "GROUP_READ",
+    "ACK",
+    "PENDING",
+    "LEN"
+  ],
+  "symbol": [],
+  "t_digest": [
+    "ADD",
+    "QUANTILE"
+  ],
+  "tag_field": [
+    "SET",
+    "GET"
+  ],
+  "tensor": [
+    "GET",
+    "SET",
+    "LEN"
+  ],
+  "text_field": [
+    "SET",
+    "GET"
+  ],
+  "timeseries": [
+    "ADD",
+    "LEN",
+    "RANGE",
+    "LAST",
+    "AGGREGATE"
+  ],
+  "timeseries_labels": [
+    "SET",
+    "GET"
+  ],
+  "timestamp": [],
+  "top_k": [
+    "ADD",
+    "ITEMS"
+  ],
+  "trie": [
+    "INSERT",
+    "PREFIX",
+    "EXACT"
+  ],
+  "tuple": [
+    "LEN",
+    "GET",
+    "VALUES"
+  ],
+  "unsigned_integer": [
+    "ADD"
+  ],
+  "url": [
+    "HOST",
+    "SCHEME"
+  ],
+  "utf8_string": [],
+  "uuid": [],
+  "vector_metadata": [
+    "SET",
+    "GET",
+    "DELETE"
+  ],
+  "vector_set": [
+    "ADD",
+    "SEARCH",
+    "REMOVE",
+    "LEN"
+  ]
+}
