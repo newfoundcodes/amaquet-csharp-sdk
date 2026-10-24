@@ -48,7 +48,8 @@ foreach (var (type, operations) in catalog)
 
     try
     {
-        if (create.GetProperty("command").GetString() == "SET") {
+        if (create.GetProperty("command").GetString() == "SET")
+        {
             await client.SetAsync(key, type, args.GetProperty("value"));
         }
         else
@@ -57,7 +58,8 @@ foreach (var (type, operations) in catalog)
         }
 
         var read = await client.GetAsync(key);
-        if (read.GetProperty("type").GetString() != type) {
+        if (read.GetProperty("type").GetString() != type)
+        {
             throw new Exception("Type mismatch for " + type);
         }
 
