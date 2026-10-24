@@ -201,7 +201,8 @@ internal sealed class MockServer : IAsyncDisposable
                                             "delay_ms",
                                             out var ms
                                         )
-                                    ) {
+                                    )
+                                    {
                                         await Task.Delay(
                                             ms.GetInt32(),
                                             _stop.Token
