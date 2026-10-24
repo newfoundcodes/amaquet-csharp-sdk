@@ -1,0 +1,45 @@
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+
+        <PackageId>Newfoundcodes.Amaquet</PackageId>
+        <Version>0.1.0</Version>
+        <Authors>Newfoundcodes</Authors>
+        <Title>Amaquet .NET SDK</Title>
+        <Description>
+            Official .NET client SDK for the Amaquet data
+            server, including native TCP/TLS communication,
+            typed data operations, and HTTP administration.
+        </Description>
+
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://amaquet.newfoundcodes.com</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/newfoundcodes/amaquet-csharp-sdk</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <PackageTags>amaquet;database;tcp;tls;client;sdk</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference
+            Include="BouncyCastle.Cryptography"
+            Version="2.4.0"
+        />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None
+            Include="../../README.md"
+            Pack="true"
+            PackagePath="/"
+        />
+    </ItemGroup>
+</Project>
