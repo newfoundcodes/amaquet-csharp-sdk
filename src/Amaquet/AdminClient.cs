@@ -10,13 +10,20 @@ namespace Amaquet;
 /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
 public sealed class AdminOptions
 {
+    /// <summary>Bearer token used for HTTP authorization.</summary>
     public string? BearerToken { get; init; }
+
+    /// <summary>Administrative token sent to token-authenticated endpoints.</summary>
     public string? AdminToken { get; init; }
 
-    /// <summary>FromSeconds: Provides the From Seconds operation or value as implemented by this Amaquet SDK component; follow the server protocol for accepted arguments.</summary>
+    /// <summary>Maximum time allowed for an administration request.</summary>
     /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
     public TimeSpan RequestTimeout { get; init; } = TimeSpan.FromSeconds(30);
+
+    /// <summary>Maximum HTTP response body size accepted by the client.</summary>
     public int MaxResponseBytes { get; init; } = 16 << 20;
+
+    /// <summary>Whether the client stores and sends session cookies.</summary>
     public bool UseSessionCookies { get; init; } = true;
 }
 
