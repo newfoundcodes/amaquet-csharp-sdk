@@ -335,3 +335,7 @@ The optional `AMAQUET_TEST_RUN_OPERATIONS=1` also attempts each documented OP re
 | `uuid` | None; use top-level key operations |
 | `vector_metadata` | `SET`, `GET`, `DELETE` |
 | `vector_set` | `ADD`, `SEARCH`, `REMOVE`, `LEN` |
+
+## License
+
+Amaquet C# SDK is licensed under the MIT License. See [LICENSE](LICENSE) for the complete license text.

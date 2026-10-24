@@ -1,3 +1,14 @@
+/*
+ * Amaquet C# SDK - A Newfoundcodes project.
+ *
+ * Copyright (C) 2026 Jonathan Eldy Baldivicio
+ *
+ * Author: Jonathan Eldy Baldivicio
+ * Contact: jonathaneldy.baldivicio@newfoundcodes.com
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 namespace Amaquet;
 
 /// <summary>AmaquetException: Represents an Amaquet amaquet exception with diagnostic information for callers; avoid logging credentials or private payloads.</summary>
