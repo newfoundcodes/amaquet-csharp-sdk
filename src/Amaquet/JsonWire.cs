@@ -12,7 +12,7 @@ namespace Amaquet;
 /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
 public static class JsonWire
 {
-    /// <summary>new: Provides the new operation or value as implemented by this Amaquet SDK component; follow the server protocol for accepted arguments.</summary>
+    /// <summary>Serializer options used by the Amaquet JSON wire format.</summary>
     /// <remarks>Use TLS and identity pins for remote endpoints; close resources and bound pending requests in long-running applications.</remarks>
     /// <remarks>Failures: Invalid arguments, protocol errors, remote errors, timeout, or connection loss may be reported as appropriate to this API.</remarks>
     public static readonly JsonSerializerOptions Options = new()
