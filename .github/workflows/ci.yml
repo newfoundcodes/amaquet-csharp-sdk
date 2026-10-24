@@ -1,0 +1,25 @@
+name: Amaquet C# SDK
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  verify:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - run: dotnet restore src/Amaquet/Amaquet.csproj
+      - run: dotnet build src/Amaquet/Amaquet.csproj -c Release --no-restore -warnaserror
+      - run: dotnet build examples/Amaquet.Examples.csproj -c Release
+      - run: dotnet run --project tests/Amaquet.ContractTests/Amaquet.ContractTests.csproj -c Release
+      - run: dotnet run --project fuzz/Amaquet.Fuzz/Amaquet.Fuzz.csproj -c Release -- 2000
+      - run: dotnet pack src/Amaquet/Amaquet.csproj -c Release
