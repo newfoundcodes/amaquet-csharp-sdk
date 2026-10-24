@@ -10,7 +10,8 @@ using Amaquet.ContractTests;
 int passed = 0;
 void Check(bool success, string message)
 {
-    if (!success) {
+    if (!success)
+    {
         throw new Exception("FAIL " + message);
     }
 
@@ -131,7 +132,8 @@ await using (var server = new MockServer())
         .ToArray();
     var answers = await Task.WhenAll(pings);
 
-    for (int i = 0; i < answers.Length; i++) {
+    for (int i = 0; i < answers.Length; i++)
+    {
         Check(
             answers[i].GetProperty("args").GetProperty("token").GetInt32() == i,
             "multiplexed response matching"
@@ -599,7 +601,8 @@ internal sealed class FakeAdminHandler : HttpMessageHandler
             ),
         };
 
-        if (request.RequestUri.AbsolutePath == "/api/session") {
+        if (request.RequestUri.AbsolutePath == "/api/session")
+        {
             response.Headers.Add(
                 "Set-Cookie",
                 "amaquet_session=testcookie; HttpOnly; SameSite=Strict"
