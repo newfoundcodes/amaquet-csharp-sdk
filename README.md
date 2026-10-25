@@ -10,7 +10,7 @@ A .NET 8 library for Amaquet native TCP/TLS data operations and the separate HTT
 
 ## Requirements
 
-- .NET SDK 8.0 or later and a reachable Amaquet v0.1.0 server.
+- .NET SDK 8.0 or later and a reachable Amaquet server compatible with SDK version 0.1.0.
 - NuGet package `BouncyCastle.Cryptography` 2.4.0 for Ed25519 signed HELLO verification. All other library components use .NET framework APIs.
 - TLS with normal certificate chain and hostname validation is recommended for remote production use. Raw `amaquet://` is not encrypted.
 
@@ -70,7 +70,7 @@ For a server without TLS, use `amaquet://127.0.0.1:13378` only on a trusted loca
 
 ## Native TCP protocol
 
-The v0.1.0 frame uses a fixed **24-byte big-endian header**: magic `AMQT` (4), version (1), kind (1), flags (2), opcode (2), reserved (2), request ID (8), and payload size (4). Protocol opcodes: COMMAND=1, HELLO=2, AUTH=3, SUBSCRIBE=4, UNSUBSCRIBE=5, CANCEL=6. Payloads for these operations are JSON. The maximum frame payload is **64 MiB**, including limits checked before allocating. The native connection is separate from HTTP admin.
+The protocol v1 frame uses a fixed **24-byte big-endian header**: magic `AMQT` (4), version (1), kind (1), flags (2), opcode (2), reserved (2), request ID (8), and payload size (4). Protocol opcodes: COMMAND=1, HELLO=2, AUTH=3, SUBSCRIBE=4, UNSUBSCRIBE=5, CANCEL=6. Payloads for these operations are JSON. The maximum frame payload is **64 MiB**, including limits checked before allocating. The native connection is separate from HTTP admin.
 
 The client starts a dedicated async reader, associates responses with 64-bit request IDs, limits in-flight calls, serializes writes, and allows concurrent callers. `BeginCommandAsync` returns a `RequestTicket` so an application can hold the request ID and await `Response`. `CancelRequestAsync` sends the protocol CANCEL opcode. Cancellation/timeout **cannot undo a mutation that the server has already committed**. The client does not replay writes automatically.
 
@@ -212,12 +212,11 @@ dotnet run --project examples/Amaquet.Examples.csproj -- type:atomic_counter --o
 dotnet run --project examples/Amaquet.Examples.csproj -- workflow:01
 ```
 
-## Tests, fuzzing and source audits
+The C# examples use `AMAQUET_ENDPOINT` for the native URI. The equivalent Go and Java examples use `AMAQUET_URI` and `AMAQUET_URL` respectively.
+
+## Tests and fuzzing
 
 ```bash
-python3 tools/audit.py
-python3 tools/generate_types.py --check
-
 dotnet build src/Amaquet/Amaquet.csproj -c Release
 dotnet build examples/Amaquet.Examples.csproj -c Release
 
