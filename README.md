@@ -10,7 +10,7 @@ A .NET 8 library for Amaquet native TCP/TLS data operations and the separate HTT
 
 ## Requirements
 
-- .NET SDK 8.0 or later and a reachable Amaquet server compatible with SDK version 0.1.0.
+- .NET SDK 8.0 or later and a reachable Amaquet server compatible with SDK version 0.1.1.
 - NuGet package `BouncyCastle.Cryptography` 2.4.0 for Ed25519 signed HELLO verification. All other library components use .NET framework APIs.
 - TLS with normal certificate chain and hostname validation is recommended for remote production use. Raw `amaquet://` is not encrypted.
 
